@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<ResourceConfig>
+ 
+    <Resource name="cart">
+        <GetUri uri="store/{storeId}/cart/@self/estimatedTaxAndShipCharge" description="Get shipping fee and tax value information for current cart" 
+        		accessProfile="HBC_EstimatedTaxAndShipAmountCalculation"/> 
+     </Resource> 
+     
+     <Resource name="brand">
+        <GetUri uri="store/{storeId}/brandview/findBrandByStoreId/{categoryId}" 
+        		description="Get brand by storeid based on below access profile." 
+		        accessProfile="IBM_Store_Details"/>
+    </Resource>
+    <Resource name="hbccategory">
+        <GetUri uri="store/{storeId}/hbccategory/bycategoryId/{categoryid}" 
+        		description="Get hbccategory by categoryid based on below access profile." 
+		        accessProfile="IBM_Store"/>
+    </Resource>
+    
+     <Resource name="productview">
+	
+        <GetUri uri="store/{storeId}/productview/hbcbyCategory/{categoryId}" description="Get products by category unique ID" 
+        		accessProfile="IBM_Store_Details" searchProfile="X_HBCfindCatalogEntryByNameAndShortDescription"/>        		        		
+		
+    </Resource>
+     <Resource name="cart">
+        <GetUri uri="store/{storeId}/cart/@self/eligible_shipping_modes" description="Get the available shipping mode information for current item in the cart" 
+        		accessProfile="HBC_EligibleShippingModes"/> 
+     </Resource>
+     
+     <Resource name="giftreward">
+        <GetUri uri="store/{storeId}/giftreward/byOrderId/{orderid}" 
+        		description="Get giftreward by orderid based on below access profile." 
+		        accessProfile="IBM_Details"/>
+    </Resource>
+    <Resource name="order">
+        <GetUri uri="store/{storeId}/order/{orderId}" description="Get the order detail by order ID" 
+        		accessProfile="HBC_MobOrderConfirmation"/> 
+     </Resource>
+     
+     <Resource name="geonode">
+		<GetUri uri="store/{storeId}/geonode/getCountryList"
+			description="Get the country List" accessProfile="HBC_CountryList" />
+	</Resource>
+	<Resource name="geonode">
+		<GetUri uri="store/{storeId}/geonode/getExchangeRates"
+			description="Get the country List" accessProfile="HBC_ExchangeRates" />
+	</Resource>
+	<Resource name="inventoryavailability">
+		<GetUri uri="store/{storeId}/inventoryavailability/getExternalInventoryAvailablity"
+			description="Get inventory from OMS for an order" accessProfile="IBM_Store_Details" />
+	</Resource>
+</ResourceConfig> 

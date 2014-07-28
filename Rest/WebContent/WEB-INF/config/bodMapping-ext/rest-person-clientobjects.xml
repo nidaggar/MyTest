@@ -1,0 +1,11 @@
+<_config:URLtoOAGIS
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/url-to-oagis.xsd " xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+	<_config:URLDefinitions>
+		<!--  personal profile data -->
+		<_config:URLParameterGroup name="personalProfile" noun="Person">
+		    <_config:URLParameter name="attributes/pProfileAttrKey" nounElement="/PersonalProfile/attributes/@key" key="false" return="true" />
+			<_config:URLParameter name="attributes/pProfileAttrValue" nounElement="/PersonalProfile/attributes/@value" key="false" return="true" />
+		</_config:URLParameterGroup>
+	</_config:URLDefinitions>
+</_config:URLtoOAGIS>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<_config:URLtoOAGIS
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/url-to-oagis.xsd " xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+	<_config:URLDefinitions>
+		<_config:URLParameterGroup name="productSummary" noun="CatalogNavigationView">
+			<_config:URLParameter name="CatalogEntryView/xcatentry_" nounElement="/CatalogEntryView/UserData/UserDataField" return="true" type="UserData"/>
+		</_config:URLParameterGroup>
+	</_config:URLDefinitions>	
+</_config:URLtoOAGIS>

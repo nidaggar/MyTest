@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2007, 2011 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:URLtoOAGIS
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/url-to-oagis.xsd " xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+	<_config:NounDefinitions>
+		<_config:Noun name="MarketingSpotData">
+		</_config:Noun>       
+	</_config:NounDefinitions>
+
+	<_config:URLDefinitions>
+
+		<_config:URLParameterGroup name="espot" noun="MarketingSpotData">	
+			<_config:IncludeURLParameterGroup urlParameterGroup="espotCommon" />
+			<_config:IncludeURLParameterGroup urlParameterGroup="marketingContent" />
+			<_config:IncludeURLParameterGroup urlParameterGroup="catalogEntry" />
+			<_config:IncludeURLParameterGroup urlParameterGroup="catalogGroup" />
+		</_config:URLParameterGroup>
+
+
+		<_config:URLParameterGroup name="espotCommon" noun="MarketingSpotData">	
+
+			<_config:URLParameter name="marketingSpotIdentifier" nounElement="/marketingSpotIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="eSpotName" nounElement="/marketingSpotIdentifier/ExternalIdentifier/name" return="true" />
+			<_config:URLParameter name="eSpotStoreId" nounElement="/marketingSpotIdentifier/ExternalIdentifier/storeIdentifier" return="true" />
+						
+			<!--  baseMarketingSpotActivityData data. -->			
+			<_config:URLParameter name="baseMarketingSpotActivityData/baseMarketingSpotActivityID" nounElement="/BaseMarketingSpotActivityData/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/baseMarketingSpotActivityName" nounElement="/BaseMarketingSpotActivityData/Name" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/baseMarketingSpotDataType" nounElement="/BaseMarketingSpotActivityData/DataType" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/baseMarketingSpotCampaignName" nounElement="/BaseMarketingSpotActivityData/CampaignName" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/activityFormat" nounElement="/BaseMarketingSpotActivityData/ActivityFormat" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/activityPriority" nounElement="/BaseMarketingSpotActivityData/ActivityPriority" return="true" />
+			
+			<_config:URLParameter name="baseMarketingSpotActivityData/activityIdentifierID" nounElement="/BaseMarketingSpotActivityData/ActivityIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/activityIdentifierName" nounElement="/BaseMarketingSpotActivityData/ActivityIdentifier/ExternalIdentifier/name" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/activityIdentifierStoreId" nounElement="/BaseMarketingSpotActivityData/ActivityIdentifier/ExternalIdentifier/storeIdentifier" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/properties/baseMarketingKey" nounElement="/BaseMarketingSpotActivityData/Properties/@key" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/properties/baseMarketingValue" nounElement="/BaseMarketingSpotActivityData/Properties/@value" return="true" />
+						
+			<!--  experiementResult data -->
+			<_config:URLParameter name="baseMarketingSpotActivityData/experiment/experimentResultId" nounElement="/BaseMarketingSpotActivityData/ExperimentResult/Experiment/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/experiment/experimentResultName" nounElement="/BaseMarketingSpotActivityData/ExperimentResult/Experiment/Name" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/testElement/experimentResultTestElementId" nounElement="/BaseMarketingSpotActivityData/ExperimentResult/TestElement/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/testElement/experimentResultTestElementName" nounElement="/BaseMarketingSpotActivityData/ExperimentResult/TestElement/Name" return="true" />
+			
+			<_config:URLParameter name="previewReport" nounElement="/previewReport" key="false" return="true" />
+			
+			<!-- UserData Section -->
+            <_config:URLParameter name="baseMarketingSpotActivityData/x_" nounElement="/BaseMarketingSpotActivityData/UserData/UserDataField" key="false" return="true" type="UserData"/>
+		</_config:URLParameterGroup>
+		
+
+		<!-- following data only applicable to MarketingContent dataType  -->			
+		<_config:URLParameterGroup name="marketingContent" noun="MarketingSpotData">	
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentName" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentIdentifier/ExternalIdentifier/name" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentStoreId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentIdentifier/ExternalIdentifier/StoreIdentifier/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentStoreExternalId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentIdentifier/ExternalIdentifier/StoreIdentifier/externalIdentifier" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/marketingContentDescription/contentLocation" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentDescription/location" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/marketingContentDescription/maketingText" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentDescription/marketingText" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/marketingContentDescription/language" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentDescription/language" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentFormatId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentFormat/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentFormatName" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentFormat/name" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentUrl" nounElement="/BaseMarketingSpotActivityData/MarketingContent/url" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/contentMimeType" nounElement="/BaseMarketingSpotActivityData/MarketingContent/mimeType" return="true" />
+			
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentReferenceId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/attachmentReferenceIdentifier/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachementId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/attachmentIdentifier/UniqueID" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attachementExternalId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/attachmentIdentifier/ExternalIdentifier/Identifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attachementStoreId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/attachmentIdentifier/ExternalIdentifier/StoreIdentifier/UniqueID" key="true" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attachementStoreExternalId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/attachmentIdentifier/ExternalIdentifier/StoreIdentifier/externalIdentifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attachementOwnerId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/attachmentIdentifier/ExternalIdentifier/@ownerID" key="false" return="true" />
+
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentDisplaySequence" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/@displaySequence" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentDescription/attachmentName" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentDescription/name" return="true" />			
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentDescription/attachmentShortDescription" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentDescription/shortDescription" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentDescription/attachmentLongDescription" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentDescription/longDescription" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentDescription/attachmentLanguage" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentDescription/language" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentReferenceDescription/attachmentName" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentReferenceDescription/name" return="true" />			
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentReferenceDescription/attachmentShortDescription" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentReferenceDescription/shortDescription" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentReferenceDescription/attachmentLongDescription" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentReferenceDescription/longDescription" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentReferenceDescription/attachmentLanguage" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentReferenceDescription/language" return="true" />
+						
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/attachmentAssetIdentifier/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetStoreId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/StoreIdentifier/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetStoreExternalId" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/StoreIdentifier/ExternalIdentifier" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetPath" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/attachmentAssetPath" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetRootDirectory" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/RootDirectory" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetDirectoryPath" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/DirectoryPath" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetMimeType" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/@mimeType" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentAssetLanguage" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/@language" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/attachmentLocalAsset" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/@localAsset" return="true" />
+						
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentUsageName" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentUsage/usageName" key="false" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentImage" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentUsage/Image" key="false" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentDisplaySequence" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentUsage/@displaySequence" key="false" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentUsageDescription" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentUsage/AttachmentUsageDescription" key="false" return="true" />
+
+			<!-- UserData Section -->
+			<_config:URLParameter name="baseMarketingSpotActivityData/xmktc_" nounElement="/BaseMarketingSpotActivityData/MarketingContent/UserData/UserDataField" return="true" type="UserData"/>
+			<_config:URLParameter name="baseMarketingSpotActivityData/xmktDesc_" nounElement="/BaseMarketingSpotActivityData/MarketingContent/marketingContentDescription/UserData/UserDataField" return="true" type="UserData"/>			
+			<_config:URLParameter name="baseMarketingSpotActivityData/xmktAtta_" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/UserData/UserDataField" return="true" type="UserData"/>
+			<_config:URLParameter name="baseMarketingSpotActivityData/xmktAttaDesc_" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentDescription/UserData/UserDataField" return="true" type="UserData"/>
+			<_config:URLParameter name="baseMarketingSpotActivityData/xmktAttaRefe_" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentReferenceDescription/UserData/UserDataField" return="true" type="UserData"/>
+			<_config:URLParameter name="baseMarketingSpotActivityData/attachmentAsset/xasse_" nounElement="/BaseMarketingSpotActivityData/MarketingContent/Attachment/AttachmentAsset/UserData/UserDataField" return="true" type="UserData"/>           
+		</_config:URLParameterGroup>
+
+
+		<!-- following data only applicable to CatalogEntry dataType  -->			
+		<_config:URLParameterGroup name="catalogEntry" noun="MarketingSpotData">	
+
+			<_config:URLParameter name="baseMarketingSpotActivityData/productId" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/catalogEntryIdentifier/UniqueID" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/productPartNumber" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/catalogEntryIdentifier/ExternalIdentifier/PartNumber" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/storeIdentifier" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/catalogEntryIdentifier/ExternalIdentifier/StoreIdentifier" key="false" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/ownerID" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/catalogEntryIdentifier/ExternalIdentifier/@ownerID" key="false" return="true" />
+
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/productName" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/Name" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/thumbnail" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/Thumbnail" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/fullImage" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/FullImage" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/shortDescription" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/ShortDescription" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/longDescription" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/LongDescription" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/keyword" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/Keyword" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/attributes" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/Attributes" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/description/language" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Description/@language" return="true" />
+
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/attributeIdentifier" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/attributeIdentifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/parentAttributeGroup" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/parentAttributeGroup" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/groupPath" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/GroupPath" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/description" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/Description" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/attributeType" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/AttributeType" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/attributeDataType" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/AttributeDataType" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/allowedValue" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/AllowedValue" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/extendedData" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/ExtendedData" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/comparable" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/@comparable" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/displayable" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/@displayable" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/displaySequence" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/@displaySequence" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/language" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/language" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/searchable" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/searchable" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/usage" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/usage" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/name" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/Name" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/value" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/Value" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/stringValue" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/stringValue/Value" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/integerValue" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/IntegerValue" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/floatValue" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/FloatValue" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/attributeValue" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/AttributeValue" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/extendedValue" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/ExtendedValue" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/values" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/Values" key="false" return="true" />
+
+			<_config:URLParameter name="baseMarketingSpotActivityData/listPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/listPrice/Price/@value" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/listPriceCurrency" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/listPrice/Price/@currency" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/listPriceAltCurrencyPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/listPrice/AlternativeCurrencyPrice" key="false" return="true" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/listPriceQuantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/listPrice/Quantity" key="false" return="true" />
+			
+			<_config:URLParameter name="baseMarketingSpotActivityData/standardPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/Price/price/@value" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceCurrency" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/Price/price/@currency" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceAltCurrencyPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/Price/AlternativeCurrencyPrice" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceQuantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/Price/Quantity" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceDescription" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/Description" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceQualifier" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/Qualifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceContractID" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/ContractIdentifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceEndDate" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@endDate" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceLastUpdate" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@lastUpdate" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceMaxQuantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@maximumQuantity" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceMinQuantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@minimumQuantity" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPricePrecedence" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@precedence" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceQuantityUnit" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@quantityUnit" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/standardPriceStartDate" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/@startDate" key="false" return="true" />
+			
+			<_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/contractPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/contractPrice/Price/price/@value" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/currency" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/Price/price/@currency" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/alternativeCurrencyPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/Price/AlternativeCurrencyPrice" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/quantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/Price/Quantity" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/description" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/Description" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/qualifier" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/Qualifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/contractID" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/ContractIdentifier/UniqueID" key="true" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/name" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/ContractIdentifier/ExternalIdentifier/name" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/majorVersionNumber" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/ContractIdentifier/ExternalIdentifier/@majorVersionNumber" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/minorVersionNumber" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/ContractIdentifier/ExternalIdentifier/@minorVersionNumber" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/origin" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/ContractIdentifier/ExternalIdentifier/@origin" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/ownerID" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/ContractIdentifier/ExternalIdentifier/@ownerID" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/endDate" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@endDate" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/lastUpdate" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@lastUpdate" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/maximumQuantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@maximumQuantity" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/minimumQuantity" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@minimumQuantity" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/precedence" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@precedence" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/quantityUnit" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@quantityUnit" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/startDate" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/@startDate" key="false" return="true" />
+
+			<_config:URLParameter name="baseMarketingSpotActivityData/floorPrice" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/floorPrice" key="false" return="true" />
+
+            <_config:URLParameter name="baseMarketingSpotActivityData/parentCatalogGroupIdentifier" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/ParentCatalogGroupIdentifier" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/association" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Association" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/kitComponent" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/KitComponent" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/fulfillmentProperties" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/FulfillmentProperties" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attachmentReference" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/AttachmentReference" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/sEOProperties" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/SEOProperties" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/sEOURL" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/SEOURL" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/catalogEntryTypeCode" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/catalogEntryTypeCode" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/displaySequence" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/@displaySequence" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/navigationRelationship" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/NavigationRelationship" key="false" return="true" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/navigationPath" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/@navigationPath" key="false" return="true" />
+
+			<!--  user data section -->
+            <_config:URLParameter name="baseMarketingSpotActivityData/xcate_" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/UserData/UserDataField" return="true" type="UserData" />
+			<_config:URLParameter name="baseMarketingSpotActivityData/xprice_" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/UserData/UserDataField" return="true" type="UserData" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/xsPrice_" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/StandardPrice/UserData/UserDataField" return="true" type="UserData" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/contractPrice/xcPrice_" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/Price/ContractPrice/UserData/UserDataField" return="true" type="UserData" />
+            <_config:URLParameter name="baseMarketingSpotActivityData/attributes/xcateAttr_" nounElement="/BaseMarketingSpotActivityData/CatalogEntry/CatalogEntryAttributes/Attributes/UserData/UserDataField" return="true" type="UserData" />
+
+		</_config:URLParameterGroup>
+
+		<!-- following data only applicable to CatalogGroup dataType  -->			
+		<_config:URLParameterGroup name="catalogGroup" noun="MarketingSpotData">	
+
+			<!--  Note: The catalogGroup in name attribute is a dummy level. -->
+			<!--  It will not create any level in returning REST data -->
+			<!--  Its purpose is to avoid name collision with the same key in catalogEntry group -->
+
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/categoryId" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/catalogGroupIdentifier/UniqueID" return="true" />
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/categoryGroupId" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/catalogGroupIdentifier/ExternalIdentifier/GroupIdentifier" return="true" />
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/storeIdentifier" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/catalogGroupIdentifier/ExternalIdentifier/StoreIdentifier" return="true" />
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/ownerID" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/catalogGroupIdentifier/ExternalIdentifier/@ownerID" return="true" />
+				
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/parentCatalogGroupId" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/ParentCatalogGroupIdentifier/UniqueID" key="false" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/topCatalogGroup" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/@topCatalogGroup" key="true" return="true" />
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/displaySequence" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/@displaySequence" key="true" return="true"/>
+            <_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/sEOProperties" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/SEOProperties" key="false" return="true" />
+            <_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/sEOURL" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/SEOURL" key="false" return="true" />
+            <_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/navigationRelationship" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/NavigationRelationship" key="false" return="true" />
+            <_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/navigationPath" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/NavigationPath" key="false" return="true" />
+            <_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/association" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Association" key="false" return="true" />
+            <_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/taxonomyAttribute" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/TaxonomyAttribute" key="false" return="true" />
+
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/categoryName" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/Name" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/thumbnail" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/Thumbnail" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/fullImage" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/FullImage" return="true"/>	
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/shortDescription" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/ShortDescription" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/longDescription" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/LongDescription" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/language" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/@language" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/keyword" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/Keyword" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/description/attributes" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Description/Attributes" return="true"/>
+
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/attributes/name" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Attributes/Name" return="true"/>
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/attributes/value" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/Attributes/Value" return="true"/>
+							
+			<_config:URLParameter name="catalogGroup/baseMarketingSpotActivityData/xcatg_" nounElement="/BaseMarketingSpotActivityData/CatalogGroup/UserData/UserDataField" return="true" type="UserData" />
+		
+		</_config:URLParameterGroup>
+		
+
+	</_config:URLDefinitions>
+
+</_config:URLtoOAGIS>

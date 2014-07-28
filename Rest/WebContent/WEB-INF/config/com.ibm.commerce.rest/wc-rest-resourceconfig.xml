@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2007, 2011 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+
+<!--
+	This XML defines OAGIS services related configuration data for rest services.
+	Currently the only configurable attributes are accessProfile and searchProfile for GET methods.
+-->
+
+<ResourceConfig>
+
+    <Resource name="cart">
+        <GetUri uri="store/{storeId}/cart/@self" description="Get order items in current cart" 
+        		accessProfile="IBM_Details"/>
+        		
+        <GetUri uri="store/{storeId}/cart/shipping_modes" description="Get allowable shipping information for store" 
+        		accessProfile=""/>
+        		
+         <GetUri uri="store/{storeId}/cart/@self/payment_instruction" description="Get payment instruction for current cart" 
+        		accessProfile="IBM_Details"/>
+        		
+         <GetUri uri="store/{storeId}/cart/@self/shipping_info" description="Get shipping information for current cart" 
+        		accessProfile="IBM_Details"/>
+
+        <GetUri uri="store/{storeId}/cart/@self/usable_payment_info" description="Get usable payment information for current cart" 
+        		accessProfile="IBM_UsablePaymentInfo"/>
+        		
+        <GetUri uri="store/{storeId}/cart/@self/usable_shipping_info" description="Get usable shipping information for current cart" 
+        		accessProfile="IBM_UsableShippingInfo"/>        		        		
+    </Resource>
+    
+    <Resource name="categoryview">
+        <GetUri uri="store/{storeId}/categoryview/@top" description="Get top level categories" 
+        		accessProfile="IBM_Store_Summary" searchProfile="IBM_findCatalogGroupSummary"/>
+        		
+        <GetUri uri="store/{storeId}/categoryview/{categoryIdentifier}" description="Get category by identifier" 
+        		accessProfile="IBM_Store_Details" searchProfile="IBM_findCatalogGroupDetails"/>
+        		
+        <GetUri uri="store/{storeId}/categoryview/byId/{categoryId}" description="Get category by unique ID" 
+        		accessProfile="IBM_Store_Details" searchProfile="IBM_findCatalogGroupDetails"/>
+        		
+        <GetUri uri="store/{storeId}/categoryview/byParentCategory/{parentCategoryId}" description="Get child categories by a parent category unique ID" 
+        		accessProfile="IBM_Store_Summary" searchProfile="IBM_findCatalogGroupSummary"/>        		        		
+    </Resource>
+    
+    <Resource name="espot">
+        <GetUri uri="store/{storeId}/espot/{name}" description="Get marketing espot data by name" 
+        		accessProfile="IBM_Store_All"/>
+        		
+        <GetUri uri="store/{storeId}/espot/{name}/category/{categoryId}" description="Get marketing espot data by name and category id" 
+        		accessProfile="IBM_Store_All"/>
+        		
+        <GetUri uri="store/{storeId}/espot/{name}/product/{productId}" description="Get marketing espot data by name and product id" 
+        		accessProfile="IBM_Store_All"/>
+    </Resource>
+
+	<Resource name="geonode">
+		<GetUri uri="store/{storeId}/geonode//byTopGeoNode" description="Get top geo nodes "
+			accessProfile="IBM_Store_All" />
+
+		<GetUri uri="store/{storeId}/geonode//byParentGeoNode/{parentgeoid}"
+			description="Get top geo nodes by parent geo ID" accessProfile="IBM_Store_All" />
+
+	</Resource>
+
+    <Resource name="inventoryavailability">
+        <GetUri uri="store/{storeId}/inventoryavailability/{productIds}" description="Get inventory availability for a list of products"  
+        		accessProfile="IBM_Store_Details"/>
+    </Resource>
+    
+    <Resource name="order">
+        <GetUri uri="store/{storeId}/order/@history" description="Get order history for logged in user"  
+        		accessProfile="IBM_Summary"/>
+            		
+        <GetUri uri="store/{storeId}/order/{orderId}" description="Get order detail by order id" 
+        		accessProfile="IBM_Details"/>
+
+        <GetUri uri="store/{storeId}/order/byStatus/{status}" description="Get a list of orders by order status" 
+        		accessProfile="IBM_Summary"/>            		
+    </Resource>
+
+    <Resource name="person">
+        <GetUri uri="store/{storeId}/person/@self" description="Get person data for logged in user" 
+        		accessProfile="IBM_All"/>
+        
+        <GetUri uri="store/{storeId}/person/@self/checkoutProfile" description="Get person checkout profile in address book" 
+        		accessProfile="IBM_CheckoutProfile"/>
+        
+        <GetUri uri="store/{storeId}/person/@self/contact" description="Get person contact data in address book" 
+        		accessProfile="IBM_All"/>
+        
+        <GetUri uri="store/{storeId}/person/@self/contact/{nickName}" description="Get person contact data by nick name" 
+        		accessProfile="IBM_All"/>
+       
+        <GetUri uri="store/{storeId}/person/@self/contact/byAddressId/{addressId}" description="Get person contact data by address id" 
+        		accessProfile="IBM_All"/>
+    </Resource>
+    
+    <Resource name="productview">
+        <GetUri uri="store/{storeId}/productview/{partNumber}" description="Get product by part number" 
+        		accessProfile="IBM_Store_CatalogEntrySearch" searchProfile="IBM_findCatalogEntryAll"/>
+        		
+        <GetUri uri="store/{storeId}/productview/byId/{productId}" description="Get product by unique ID" 
+        		accessProfile="IBM_Store_CatalogEntrySearch" searchProfile="IBM_findCatalogEntryAll"/>
+        		
+        <GetUri uri="store/{storeId}/productview/byCategory/{categoryId}" description="Get products by category unique ID" 
+        		accessProfile="IBM_Store_Details" searchProfile="X_HBCfindCatalogEntryByNameAndShortDescription"/>        		        		
+
+        <GetUri uri="store/{storeId}/productview/bySearchTerm/{searchTerm}" description="Search products by search term and meta data" 
+        		accessProfile="IBM_Store_CatalogEntrySearch" searchProfile="X_HBCfindCatalogEntryByNameAndShortDescription"/>
+        		
+    </Resource>
+    
+    <Resource name="storelocator">
+		<GetUri uri="store/{storeId}/storelocator/byLocation" 	description="Get physical stores by geo node unique ID"
+			accessProfile="IBM_Store_All" />
+
+		<GetUri uri="store/{storeId}/storelocator/byGeoNode/{geoId}" description="Get geo nodes by type and name"
+			accessProfile="IBM_Store_Details" />
+
+		<GetUri uri="store/{storeId}/storelocator/byStoreId/{uniqueId}" description="Get physical stores by store ID"
+			accessProfile="IBM_Store_Details" />
+
+		<GetUri uri="store/{storeId}/storelocator//latitude/{latitude}/longitude/{longitude}" description="Get physical stores by store ID"
+			accessProfile="IBM_Store_Details" />
+	</Resource>
+
+    <Resource name="wishlist">
+        <GetUri uri="store/{storeId}/wishlist/@self" description="Get wish list data for a logged in user" 
+        		accessProfile="IBM_Store_GiftListSummaryAndItems"/>
+        
+        <GetUri uri="store/{storeId}/wishlist/@default" description="Get default wish list for a logged in user" 
+        		accessProfile="IBM_Store_GiftListSummaryAndItems"/>
+        
+        <GetUri uri="store/{storeId}/wishlist/{externalId}" description="Get wish list by external id" 
+        		accessProfile="IBM_Store_GiftListSummaryAndItems"/>
+        
+    </Resource>
+            
+</ResourceConfig>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2007, 2011 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:URLtoOAGIS
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/url-to-oagis.xsd " xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+
+	
+	
+	<_config:NounDefinitions>
+		<_config:Noun name="GeoNode">
+		</_config:Noun>      
+	</_config:NounDefinitions>
+	   <_config:URLDefinitions>
+			<_config:URLParameterGroup name="countrylist" noun="GeoNode">
+			<_config:URLParameter name="countryCode" nounElement="/GeoNodeIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="countryName" nounElement="/GeoNodeIdentifier/ExternalIdentifier" key="false" return="true" />			
+			<_config:URLParameter name="currencyName" nounElement="/ParentGeoNodeIdentifier/UniqueID" key="false" return="true" />
+			<_config:URLParameter name="currencyCode" nounElement="/ParentGeoNodeIdentifier/ExternalIdentifier" key="false" return="true" />				
+
+			<!--  UserData section -->
+			<_config:URLParameter name="x_" nounElement="/UserData/UserDataField" key="false" return="true" type="UserData" />
+		</_config:URLParameterGroup>
+		
+		<_config:URLParameterGroup name="currencyDetails" noun="GeoNode">
+			<_config:URLParameter name="currencyCode" nounElement="/GeoNodeIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="exchageRate" nounElement="/GeoNodeIdentifier/ExternalIdentifier" key="false" return="true" />			
+			<_config:URLParameter name="quoteId" nounElement="/ParentGeoNodeIdentifier/UniqueID" key="false" return="true" />
+			<_config:URLParameter name="roundMethod" nounElement="/ParentGeoNodeIdentifier/ExternalIdentifier" key="false" return="true" />
+			<_config:URLParameter name="lcpRuleId" nounElement="/type" key="false" return="true" />
+			<!--  UserData section -->
+			<_config:URLParameter name="x_" nounElement="/UserData/UserDataField" key="false" return="true" type="UserData" />
+		</_config:URLParameterGroup>
+
+	</_config:URLDefinitions>
+	
+</_config:URLtoOAGIS>

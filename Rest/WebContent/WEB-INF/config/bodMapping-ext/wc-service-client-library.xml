@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2007, 2010 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+
+<!--
+This XML defines document root factory, class, methods, noun index suffix, and action expression suffix
+for a noun so that REST services can automatically create and execute BusinessObjectDocument.
+
+Use this file to define the additional nouns you have used to create your own REST services.
+-->
+
+<ServiceClientLibrary>
+
+	<Noun name="Brand">
+        <DocumentRootFactory name="com.hbc.commerce.rest.brand.facade.datatypes.BrandFactory"/>
+        <ClientClass name="com.hbc.commerce.rest.brand.facade.client.BrandFacadeClient"/>
+        <Method verb="Change" name="changeBrand"/>
+		<Method verb="Process" name="processBrand"/>
+    </Noun>
+    <Noun name="HBCCategory">
+        <DocumentRootFactory name="com.hbc.commerce.hbccategory.facade.datatypes.HBCCategoryFactory"/>
+        <ClientClass name="com.hbc.commerce.hbccategory.facade.client.HBCCategoryFacadeClient"/>
+        <Method verb="Change" name="changeHBCCategory"/>
+		<Method verb="Process" name="processHBCCategory"/>
+    </Noun>
+</ServiceClientLibrary>

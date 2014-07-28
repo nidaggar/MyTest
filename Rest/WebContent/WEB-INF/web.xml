@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <display-name>Rest</display-name>
+        
+    <servlet>
+        <description/>
+        <display-name>CompositionRequestServlet</display-name>
+        <icon>
+            <small-icon/>
+            <large-icon/>
+        </icon>
+        <servlet-name>CompositionRequestServlet</servlet-name>
+        <servlet-class>com.ibm.commerce.messaging.composer.servlet.CompositionRequestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CompositionRequestServlet</servlet-name>
+        <url-pattern>/IBM.WC.Compose/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <display-name>Struts</display-name>
+        <icon>
+            <small-icon></small-icon>
+            <large-icon></large-icon>
+        </icon>
+        <servlet-name>Atom Formatting JSP Mapping Servlet</servlet-name>
+        <servlet-class>com.ibm.commerce.struts.ECActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml,/WEB-INF/struts-extension.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>detail</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <init-param>
+            <param-name>validate</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>configFactory</param-name>
+            <param-value>com.ibm.commerce.struts.config.UpdatableModuleConfigFactory</param-value>
+        </init-param>
+        <init-param>
+            <param-name>webpath</param-name>
+            <param-value>/struts</param-value>
+        </init-param>
+        <init-param>
+            <param-name>isStoreServlet</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>isRestServlet</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Atom Formatting JSP Mapping Servlet</servlet-name>
+        <url-pattern>/struts/*</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <icon/>
+        <filter-name>CompositionFilter</filter-name>
+        <filter-class>com.ibm.commerce.messaging.composer.servlet.CompositionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CompositionFilter</filter-name>
+        <servlet-name>Atom Formatting JSP Mapping Servlet</servlet-name>
+    </filter-mapping>
+        
+    <servlet>
+        <description></description>
+        <display-name></display-name>
+        <icon>
+            <small-icon></small-icon>
+            <large-icon></large-icon>
+        </icon>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <servlet-class>org.apache.wink.server.internal.servlet.RestServlet</servlet-class>
+        <init-param>
+    		<param-name>propertiesLocation</param-name>
+   			<param-value>/WEB-INF/config/rest-config.properties</param-value>
+        </init-param>
+        <init-param>
+            <param-name>applicationConfigLocation</param-name>
+            <param-value>/WEB-INF/config/providers-ext.properties;/WEB-INF/config/providers.properties;/WEB-INF/config/resources-ext.properties;/WEB-INF/config/resources.properties</param-value>
+        </init-param>
+        <init-param> 
+            <param-name>deploymentConfiguration</param-name> 
+            <param-value>com.ibm.commerce.foundation.rest.config.CommerceDeploymentConfiguration</param-value> 
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    
+    <filter>
+    	<icon>
+    		<small-icon>small.gif</small-icon>
+    		<large-icon>large.gif</large-icon>
+    	</icon>
+    	<filter-name>RESTCacheFilter</filter-name>
+    	<filter-class>com.ibm.commerce.rest.caching.RESTCacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>RESTCacheFilter</filter-name>
+    	<servlet-name>JAX-RS Servlet</servlet-name>
+    </filter-mapping>
+    
+    <filter>
+    	<description>
+    	</description>
+    	<display-name>RestTransactionFilter</display-name>
+    	<filter-name>RestTransactionFilter</filter-name>
+    	<filter-class>com.ibm.commerce.rest.filter.RestTransactionFilter</filter-class>
+    </filter>   
+    <filter-mapping>
+    	<filter-name>RestTransactionFilter</filter-name>
+    	<servlet-name>JAX-RS Servlet</servlet-name>
+    </filter-mapping>
+    
+    <listener>
+		<description>Servlet listener that initializes Commerce REST configuration </description>
+		<icon>
+			<small-icon>small.gif</small-icon>
+			<large-icon>large.gif</large-icon>
+		</icon>
+		<listener-class>com.ibm.commerce.rest.config.CommerceRestConfigListener</listener-class>
+	</listener>
+	
+    <error-page>
+        <error-code>500</error-code>
+        <location>/jsp/commerce/foundation/restricted/Server500.jsp</location>
+    </error-page>
+    
+</web-app>

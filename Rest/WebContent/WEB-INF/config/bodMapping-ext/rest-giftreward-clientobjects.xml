@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2011 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+
+<_config:URLtoOAGIS
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/url-to-oagis.xsd " xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+	
+	<_config:NounDefinitions>
+		<_config:Noun name="GiftReward">
+			<_config:NounElement name="RewardOption" part="true"/>
+			<!-- Add more NounElement, if any, refer to IBM Info Center for WebSphere Commerce web services -->
+		</_config:Noun>	
+	</_config:NounDefinitions>
+	
+	<_config:URLDefinitions>
+
+
+		<!--  Add/update/delete items to shopping cart -->
+		<_config:URLParameterGroup name="rewardUpdate" noun="GiftReward">	
+		    <_config:URLParameter name="orderId" nounElement="/OrderIdentifier/UniqueID" key="true" return="true" />	
+			<_config:URLParameter name="rewardOption/rewardOptionId" nounElement="/RewardOption/RewardOptionIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="rewardOption/rewardChoiceGiftItem/productId" nounElement="/RewardOption/RewardChoice/GiftSet/GiftItem/CatalogEntryIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="rewardOption/rewardChoiceGiftItem/quantity" nounElement="/RewardOption/RewardChoice/GiftSet/GiftItem/Quantity/@value" key="false" return="true" />
+			<_config:URLParameter name="rewardOption/rewardChoiceGiftItem/uom" nounElement="/RewardOption/RewardChoice/GiftSet/GiftItem/Quantity/@uom" key="false" return="true" />
+			<_config:URLParameter name="rewardOption/rewardSpecGiftItem/productId" nounElement="/RewardOption/RewardSpecification/GiftSetSpecification/GiftItem/CatalogEntryIdentifier/UniqueID" key="true" return="true" />
+			<_config:URLParameter name="rewardOption/rewardSpecGiftItem/value" nounElement="/RewardOption/RewardSpecification/GiftSetSpecification/GiftItem/Quantity/@value" key="false" return="true" />
+			<_config:URLParameter name="rewardOption/rewardSpecGiftItem/uom" nounElement="/RewardOption/RewardSpecification/GiftSetSpecification/GiftItem/Quantity/@uom" key="false" return="true" />			
+		</_config:URLParameterGroup>
+		
+	</_config:URLDefinitions>
+
+</_config:URLtoOAGIS>
+

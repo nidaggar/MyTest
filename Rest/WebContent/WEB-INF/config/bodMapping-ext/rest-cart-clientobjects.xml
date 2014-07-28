@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2007, 2011 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+
+<_config:URLtoOAGIS
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../xsd/url-to-oagis.xsd " xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config">
+	
+	<_config:NounDefinitions>	
+		<_config:Noun name="Order">
+			<_config:NounElement name="OrderItem" part="true"/>
+			<_config:NounElement name="OrderPaymentInfo/PaymentInstruction" part="true" />
+			<_config:NounElement name="OrderItem/OrderItemShippingInfo" part="true"/>
+			<_config:NounElement name="OrderShippingInfo" part="true"/>
+		</_config:Noun>	
+	</_config:NounDefinitions>
+
+	<_config:URLDefinitions>	
+		<!--  Retrieve/Add/Update promo code -->
+		<_config:URLParameterGroup name="cart" noun="Order">
+			<_config:URLParameter name="promotionCode" nounElement="/PromotionCode" key="false" return="false" />
+			<_config:URLParameter name="promotionCode/code" nounElement="/PromotionCode/Code" key="false" return="true" />
+			<_config:URLParameter name="promotionCode/x_" nounElement="/PromotionCode/UserData/UserDataField" key="false" return="true" type="UserData" />	
+		</_config:URLParameterGroup>	
+		<!--  Retrieve/Add/Update payment instruction -->
+		<_config:URLParameterGroup name="payment_instruction" noun="Order">		
+			<_config:URLParameter name="paymentInstruction/piAmount" nounElement="/OrderPaymentInfo/PaymentInstruction/Amount/@value" key="true" return="true" />
+			<_config:URLParameter name="paymentInstruction/HBC" nounElement="/OrderPaymentInfo/PaymentInstruction/UserData/UserDataField" key="true" return="true" type="UserData" />
+     	</_config:URLParameterGroup>
+		
+		
+		
+	</_config:URLDefinitions>
+	
+</_config:URLtoOAGIS>
